@@ -1,13 +1,13 @@
-# Diabetes Health Indicators 
+# Comprehensive Analysis of Health Indicators for Diabetes Prediction
 
 Collaborators: Vihaan Shah, Manan Ambaliya
 
 
 # Introduction
 
-Being one of the most common chronic diseases globally, diabetes affects millions of people, presenting a major public health challenge. Early recognition of diabetes is critical in preventing complications and improving prognosis. Our team focuses on predicting diabetes probability in patients utilizing various health-related features with the help of different Machine Learning models. Our work aims to develop a strong classification setup that aids healthcare professionals in helping them accurately pinpoint at-risk candidates.
+Being one of the most common chronic diseases globally, [diabetes](https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes) affects millions of people, presenting a major public health challenge. Early recognition of diabetes is critical in preventing complications and improving prognosis. My friend and I focuses on predicting diabetes probability in patients utilizing various health-related features with the help of different Machine Learning models. Our aims to develop a strong classification setup that aids healthcare professionals in helping them accurately pinpoint at-risk candidates.
 
-Sophisticated machine-learning techniques like Random Forest Classifier and Support Vector Machine are very useful for dealing with complex data in predictive modeling applications. This project uses the above models to figure out which health indicators generally implicate diabetes risk. Many such features including BMI, age, blood pressure, and cholesterol level are going to be present in the dataset and help in better understanding the performance of the prediction models.
+Sophisticated [machine-learning](https://www.ibm.com/think/topics/machine-learning) techniques like [Random Forest Classifier](https://www.ibm.com/topics/random-forest) and [Support Vector Machine](https://www.ibm.com/topics/support-vector-machine) are very useful for dealing with complex data in predictive modeling applications. This project uses the above models to figure out which health indicators generally implicate diabetes risk. Many such features including BMI, age, blood pressure, and cholesterol level are going to be present in the dataset and help in better understanding the performance of the prediction models.
 
 Over this tutorial, we will be going through the Data Science Lifecycle as follows:
 
