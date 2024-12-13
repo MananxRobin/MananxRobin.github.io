@@ -11,21 +11,21 @@ Sophisticated machine-learning techniques like Random Forest Classifier and Supp
 
 Over this tutorial, we will be going through the Data Science Lifecycle as follows:
 
-1. Data Collection  
-2. Data Pre-processing  
-3. Exploratory Analysis & Data Visualization  
-4. Model Development  
-5. Model Evaluation and Validation
-6. Interpretation : Insight and Policy Decision 
+1. [Data Collection](https://www.simplilearn.com/what-is-data-collection-article)  
+2. [Data Pre-processing](https://www.geeksforgeeks.org/data-preprocessing-in-data-mining/)  
+3. [Exploratory Analysis & Data Visualization](https://www.ibm.com/topics/exploratory-data-analysis)  
+4. [Model Development](https://www.geeksforgeeks.org/choosing-a-suitable-machine-learning-algorithm/)
+5. [Model Evaluation and Validation](https://www.geeksforgeeks.org/machine-learning-model-evaluation/)
+6. [Interpretation : Insight and Policy Decision](https://neptune.ai/blog/ml-model-interpretation-tools)
 
 
 # Data Collection
 
-The dataset was gathered at the beginning of this project for analysis and prediction of diabetes in a person. This dataset, from a reliable repository, includes a set of health indicators such as BMI, age, blood pressure, cholesterol, and other attributes related to the diagnosis of diabetes. This dataset will form the basis of training machine learning models to predict diabetes with utmost efficiency.
+The dataset was gathered at the beginning of this project for analysis and prediction of diabetes in a person. This dataset, from a [Kaggle](https://www.kaggle.com/datasets?search=Diabetes+dataset) dataset repository, includes a set of health indicators such as BMI, age, blood pressure, cholesterol, and other attributes related to the diagnosis of diabetes. This dataset will form the basis of training machine learning models to predict diabetes with utmost efficiency.
 
 The dataset used is a CSV file known as `diabetes.csv`. It includes information from a variety of individuals in the form of features that are crucial for diabetes prediction. Initial inspection of the data showed no values missing, hence guaranteeing a smooth pre-processing workflow.
 
-Throughout this entire project, data manipulation and analysis have been done in Python programming language and Jupyter Notebook. For handling data and visualization, different libraries were used like Pandas for handling data, NumPy for computations, and Matplotlib for visualization. Using such commands as `.head()`, `.info()`, and `.describe()`, an observation of the structure and the contents of this dataset is to be made to understand its distribution and characteri 
+Throughout this entire project, data manipulation and analysis have been done in [Python](https://www.python.org) programming language and Jupyter Notebook. For handling data and visualization, different libraries were used like [Pandas](https://pandas.pydata.org/docs/) for handling data, [NumPy](https://numpy.org/doc/stable/reference/generated/numpy.indices.html) for computations, and [Matplotlib](https://numpy.org/doc/stable/reference/generated/numpy.indices.html) for visualization. Using such commands as `.head()`, `.info()`, and `.describe()`, an observation of the structure and the contents of this dataset is to be made to understand its distribution and characteri 
 
 
 ---
