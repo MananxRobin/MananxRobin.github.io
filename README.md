@@ -1,5 +1,5 @@
 # Comprehensive Analysis of Health Indicators for Diabetes Prediction
-Collaboraters: Manan Ambaliya, Vihaan Shah
+Collaborators: Manan Ambaliya, Vihaan Shah
 
 # Introduction
 
