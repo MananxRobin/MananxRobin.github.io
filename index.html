@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio of Manan Ambaliya — data analyst, AI/ML engineer, software engineer, and data scientist."
+    />
+    <title>Manan Ambaliya — Data, AI &amp; Software</title>
+    <style>
+      :root {
+        --ink: #11201d;
+        --muted: #53605a;
+        --paper: #f0f2e9;
+        --paper-deep: #e3e8dc;
+        --lime: #c9f36a;
+        --coral: #ff735f;
+        --line: rgba(17, 32, 29, 0.16);
+        --serif: Georgia, 'Times New Roman', serif;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: var(--sans);
+        overflow-x: hidden;
+      }
+      a { color: inherit; text-decoration: none; }
+      .shell { width: min(1220px, calc(100% - 48px)); margin: 0 auto; }
+      .eyebrow, .mono-label {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .eyebrow { color: var(--muted); }
+      .mono-label { color: var(--coral); }
+
+      .site-header {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+        border-bottom: 1px solid var(--line);
+      }
+      .wordmark {
+        font-family: var(--serif);
+        font-size: 1.22rem;
+        line-height: 1;
+        letter-spacing: -0.055em;
+      }
+      .wordmark span { color: var(--coral); }
+      nav { display: flex; align-items: center; gap: 24px; }
+      nav a { font-size: 0.84rem; transition: color 160ms ease; }
+      nav a:hover { color: var(--coral); }
+      .github-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 13px;
+        border: 1px solid var(--ink);
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .github-link:hover { color: var(--paper); background: var(--ink); }
+
+      .hero {
+        position: relative;
+        min-height: 670px;
+        display: grid;
+        grid-template-columns: 1.45fr 0.85fr;
+        gap: clamp(36px, 7vw, 105px);
+        align-items: center;
+        padding: 80px 0 72px;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 520px;
+        height: 520px;
+        left: -240px;
+        top: 52px;
+        border-radius: 50%;
+        background: var(--lime);
+        filter: blur(1px);
+        opacity: 0.86;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 370px;
+        height: 370px;
+        right: -178px;
+        bottom: 35px;
+        border: 1px solid rgba(17, 32, 29, 0.23);
+        border-radius: 50%;
+      }
+      .availability {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 10px;
+        background: rgba(240, 242, 233, 0.72);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(8px);
+      }
+      .availability i {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 50%;
+        background: var(--coral);
+      }
+      h1 {
+        max-width: 780px;
+        margin: 20px 0 26px;
+        font-family: var(--serif);
+        font-size: clamp(4.1rem, 8.2vw, 8.1rem);
+        font-weight: 400;
+        letter-spacing: -0.085em;
+        line-height: 0.97;
+      }
+      h1 em { color: var(--coral); font-style: italic; }
+      .hero-copy {
+        max-width: 510px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.65;
+      }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 17px;
+        border: 1px solid var(--ink);
+        font-size: 0.85rem;
+        font-weight: 650;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+      .button:hover { transform: translate(-3px, -3px); box-shadow: 4px 4px 0 var(--ink); }
+      .button.primary { background: var(--ink); color: var(--paper); }
+      .button.arrow::after { content: '↗'; font-size: 1.1rem; font-weight: 400; }
+
+      .profile-card {
+        position: relative;
+        isolation: isolate;
+        min-height: 442px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: var(--paper);
+        background: var(--ink);
+        box-shadow: 12px 12px 0 var(--coral);
+        overflow: hidden;
+      }
+      .profile-card::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 267px;
+        height: 267px;
+        right: -90px;
+        top: -85px;
+        border: 1px solid rgba(240, 242, 233, 0.38);
+        border-radius: 50%;
+      }
+      .profile-card::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 147px;
+        height: 147px;
+        left: -46px;
+        bottom: 123px;
+        border-radius: 50%;
+        background: var(--lime);
+      }
+      .portrait-wrap {
+        position: absolute;
+        width: 185px;
+        height: 185px;
+        right: 23px;
+        top: 28px;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 1px solid rgba(240, 242, 233, 0.75);
+        background: var(--paper-deep);
+      }
+      .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; }
+      .profile-card .eyebrow { color: rgba(240, 242, 233, 0.63); }
+      .profile-card h2 {
+        margin: 7px 0 8px;
+        max-width: 350px;
+        font-family: var(--serif);
+        font-size: clamp(2.15rem, 3vw, 3rem);
+        line-height: 0.95;
+        font-weight: 400;
+        letter-spacing: -0.055em;
+      }
+      .profile-card p { max-width: 290px; margin: 0; color: rgba(240, 242, 233, 0.72); font-size: 0.9rem; line-height: 1.55; }
+      .profile-meta { display: flex; gap: 11px; align-items: center; margin-top: 23px; color: var(--lime); }
+      .profile-meta span { height: 1px; width: 37px; background: currentColor; }
+      .focus-card { justify-content: flex-start; padding: 29px; }
+      .focus-card::after { display: none; }
+      .focus-card h2 { max-width: 335px; margin: 34px 0 12px; }
+      .focus-card p { max-width: 360px; }
+      .focus-list { width: 100%; margin-top: 30px; border-top: 1px solid rgba(240, 242, 233, 0.24); }
+      .focus-item { display: grid; grid-template-columns: 30px minmax(76px, 0.7fr) 1.15fr; gap: 9px; align-items: center; min-height: 49px; border-bottom: 1px solid rgba(240, 242, 233, 0.24); }
+      .focus-item span { color: var(--coral); font-family: var(--mono); font-size: 0.64rem; }
+      .focus-item strong { font-family: var(--serif); font-size: 1.07rem; font-weight: 400; letter-spacing: -0.035em; }
+      .focus-item small { color: rgba(240, 242, 233, 0.63); font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.025em; text-align: right; }
+      .scroll-cue {
+        position: absolute;
+        left: 0;
+        bottom: 27px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+      }
+      .scroll-cue b { width: 23px; height: 35px; border: 1px solid var(--muted); border-radius: 14px; display: grid; place-items: start center; }
+      .scroll-cue b::after { content: ''; width: 2px; height: 8px; margin-top: 7px; background: var(--muted); animation: scroll 1.6s infinite; }
+      @keyframes scroll { 50% { transform: translateY(11px); opacity: 0; } }
+
+      .marquee {
+        overflow: hidden;
+        padding: 15px 0;
+        background: var(--coral);
+        color: var(--ink);
+        border-top: 1px solid var(--ink);
+        border-bottom: 1px solid var(--ink);
+        white-space: nowrap;
+      }
+      .marquee-track { display: inline-block; animation: marquee 28s linear infinite; }
+      .marquee span { margin-right: 30px; font-family: var(--serif); font-size: 1.52rem; font-style: italic; letter-spacing: -0.04em; }
+      .marquee i { color: var(--paper); font-style: normal; margin-right: 30px; }
+      @keyframes marquee { to { transform: translateX(-50%); } }
+
+      .section { padding: 120px 0; }
+      .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 43px; }
+      .section-head h2, .statement h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(2.7rem, 5vw, 5.2rem);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.075em;
+      }
+      .section-head .mono-label { display: block; margin-bottom: 17px; }
+      .section-head p { max-width: 290px; margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+
+      .experience { padding: 95px 0 48px; border-bottom: 1px solid var(--line); }
+      .experience-list { border-top: 1px solid var(--ink); }
+      .role {
+        display: grid;
+        grid-template-columns: minmax(175px, 0.85fr) minmax(115px, 0.42fr) minmax(260px, 1.23fr);
+        gap: 24px;
+        padding: 25px 0 29px;
+        border-bottom: 1px solid var(--line);
+      }
+      .role h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.55rem; font-weight: 400; line-height: 0.98; letter-spacing: -0.052em; }
+      .role .company { color: var(--muted); font-size: 0.88rem; }
+      .role time { color: var(--coral); font-family: var(--mono); font-size: 0.67rem; line-height: 1.45; text-transform: uppercase; letter-spacing: 0.04em; }
+      .role p { max-width: 505px; margin: 0; color: var(--muted); font-size: 0.91rem; line-height: 1.56; }
+
+      .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+      .project {
+        position: relative;
+        min-height: 338px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 29px;
+        overflow: hidden;
+        background: var(--paper);
+        transition: background 190ms ease;
+      }
+      .project:hover { background: #fafbf6; }
+      .project:nth-child(1) { background: var(--ink); color: var(--paper); }
+      .project:nth-child(1):hover { background: #1a2e28; }
+      .project:nth-child(3) { background: var(--lime); }
+      .project:nth-child(4) { background: var(--paper-deep); }
+      .project-index { color: var(--coral); }
+      .project:nth-child(3) .project-index { color: var(--ink); }
+      .project h3 {
+        max-width: 440px;
+        margin: auto 0 13px;
+        font-family: var(--serif);
+        font-size: clamp(2rem, 3.8vw, 3.55rem);
+        font-weight: 400;
+        line-height: 0.91;
+        letter-spacing: -0.067em;
+      }
+      .project p { max-width: 450px; margin: 0; color: inherit; opacity: 0.74; font-size: 0.93rem; line-height: 1.56; }
+      .project .repo-arrow {
+        position: absolute;
+        right: 26px;
+        top: 23px;
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        font-size: 1.22rem;
+        opacity: 0.86;
+        transition: transform 160ms ease;
+      }
+      .project:hover .repo-arrow { transform: rotate(45deg); }
+      .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; }
+      .tags span { padding: 5px 7px; border: 1px solid currentColor; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.03em; text-transform: uppercase; opacity: 0.78; }
+
+      .statement { padding: 120px 0; color: var(--paper); background: var(--ink); }
+      .statement-grid { display: grid; grid-template-columns: 0.76fr 1.24fr; gap: clamp(42px, 8vw, 130px); }
+      .statement h2 { font-size: clamp(3.4rem, 6.7vw, 6.8rem); line-height: 1.02; }
+      .statement h2 em { color: var(--lime); font-style: italic; }
+      .statement-copy { padding-top: 8px; }
+      .statement-copy p { max-width: 585px; margin: 0; color: rgba(240, 242, 233, 0.77); font-size: 1.08rem; line-height: 1.7; }
+      .skill-list { margin-top: 40px; border-top: 1px solid rgba(240, 242, 233, 0.24); }
+      .skill-row { display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; align-items: center; min-height: 65px; border-bottom: 1px solid rgba(240, 242, 233, 0.24); }
+      .skill-row b { font-family: var(--mono); color: var(--coral); font-size: 0.68rem; font-weight: 400; }
+      .skill-row span { font-family: var(--serif); font-size: 1.36rem; letter-spacing: -0.04em; }
+      .skill-row small { color: rgba(240, 242, 233, 0.56); font-family: var(--mono); font-size: 0.64rem; text-align: right; }
+
+      .about { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(50px, 10vw, 165px); align-items: start; }
+      .about-graphic { position: relative; min-height: 395px; border: 1px solid var(--ink); background: linear-gradient(140deg, var(--paper-deep), var(--paper)); overflow: hidden; }
+      .about-graphic::before, .about-graphic::after { content: ''; position: absolute; border: 1px solid rgba(17, 32, 29, 0.42); border-radius: 50%; }
+      .about-graphic::before { width: 357px; height: 357px; top: -140px; left: -120px; }
+      .about-graphic::after { width: 286px; height: 286px; bottom: -154px; right: -95px; }
+      .coordinate { position: absolute; font-family: var(--mono); font-size: 0.64rem; color: var(--muted); }
+      .coordinate.x { top: 22px; left: 22px; }
+      .coordinate.y { bottom: 20px; right: 20px; }
+      .orbit { position: absolute; inset: 50% auto auto 50%; width: 190px; height: 190px; transform: translate(-50%, -50%); border: 1px dashed var(--ink); border-radius: 50%; animation: turn 22s linear infinite; }
+      .orbit::after { content: ''; position: absolute; width: 24px; height: 24px; right: 10px; top: 8px; border-radius: 50%; background: var(--coral); }
+      .nucleus { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; transform: translate(-50%, -50%); display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--lime); font-family: var(--serif); font-size: 1.8rem; }
+      @keyframes turn { to { transform: translate(-50%, -50%) rotate(360deg); } }
+      .about-copy h2 { margin: 14px 0 24px; font-family: var(--serif); font-size: clamp(3rem, 5vw, 5rem); line-height: 0.89; letter-spacing: -0.075em; font-weight: 400; }
+      .about-copy h2 em { color: var(--coral); font-style: italic; }
+      .about-copy p { max-width: 560px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+      .fact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 31px; }
+      .fact { padding-top: 15px; border-top: 1px solid var(--line); }
+      .fact strong { display: block; margin-bottom: 6px; font-family: var(--serif); font-size: 1.55rem; font-weight: 400; letter-spacing: -0.05em; }
+      .fact span { color: var(--muted); font-family: var(--mono); font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+      .contact { padding: 122px 0 36px; background: var(--lime); }
+      .contact h2 { max-width: 1000px; margin: 15px 0 37px; font-family: var(--serif); font-size: clamp(4rem, 9.3vw, 9.6rem); line-height: 0.94; letter-spacing: -0.095em; font-weight: 400; }
+      .contact h2 em { color: var(--coral); font-style: italic; }
+      .contact-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 20px; border-top: 1px solid var(--ink); }
+      .contact-bar p { max-width: 385px; margin: 0; font-size: 0.94rem; line-height: 1.55; }
+      .email { font-family: var(--serif); font-size: clamp(1.3rem, 2.7vw, 2.5rem); letter-spacing: -0.055em; border-bottom: 1px solid var(--ink); }
+      .site-footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 92px; color: var(--muted); font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+      [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 650ms ease, transform 650ms ease; }
+      [data-reveal].visible { opacity: 1; transform: none; }
+
+      @media (max-width: 800px) {
+        .shell { width: min(100% - 34px, 620px); }
+        nav a { display: none; }
+        .hero { min-height: auto; grid-template-columns: 1fr; padding: 66px 0 98px; }
+        h1 { font-size: clamp(3.8rem, 17vw, 6.6rem); }
+        .profile-card { min-height: 380px; max-width: 440px; }
+        .focus-card h2 { margin-top: 25px; }
+        .scroll-cue { bottom: 32px; }
+        .section { padding: 82px 0; }
+        .experience { padding: 75px 0 42px; }
+        .section-head { display: block; }
+        .section-head p { margin-top: 17px; }
+        .work-grid, .statement-grid, .about { grid-template-columns: 1fr; }
+        .role { grid-template-columns: 1fr; gap: 9px; }
+        .project { min-height: 309px; }
+        .statement { padding: 82px 0; }
+        .about-graphic { min-height: 310px; }
+        .contact { padding-top: 85px; }
+        .contact-bar { display: block; }
+        .email { display: inline-block; margin-top: 25px; }
+        .site-footer { padding-top: 72px; }
+      }
+      @media (max-width: 440px) {
+        .github-link { padding: 9px 10px; }
+        .profile-card { padding: 21px; box-shadow: 8px 8px 0 var(--coral); }
+        .portrait-wrap { width: 140px; height: 140px; }
+        .focus-item { grid-template-columns: 27px 0.72fr 1.08fr; }
+        .focus-item small { font-size: 0.52rem; }
+        .skill-row { grid-template-columns: 44px 1fr; }
+        .skill-row small { display: none; }
+        .fact-row { grid-template-columns: 1fr; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell site-header">
+      <a class="wordmark" href="#top">Manan Ambaliya<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#experience">Experience</a>
+        <a href="#work">Selected work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/manan-ambaliya-65806217a/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a class="github-link" href="https://github.com/MananxRobin" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="shell hero">
+        <div data-reveal>
+          <div class="availability eyebrow"><i></i> Data · AI/ML · Software</div>
+          <h1>I turn data into <em>systems</em> that drive decisions.</h1>
+          <p class="hero-copy">I build production-minded machine-learning systems and data products across finance, healthcare, and high-volume operational workflows.</p>
+          <div class="hero-actions">
+            <a class="button primary arrow" href="#work">Explore selected work</a>
+            <a class="button arrow" href="https://github.com/MananxRobin" target="_blank" rel="noreferrer">View GitHub</a>
+          </div>
+        </div>
+
+        <aside class="profile-card focus-card" data-reveal aria-label="Capabilities">
+          <div class="eyebrow">What I bring / 01</div>
+          <h2>From question to shipped system.</h2>
+          <p>I work where analytics, data science, and software engineering meet.</p>
+          <div class="focus-list">
+            <div class="focus-item"><span>01</span><strong>Analyze</strong><small>SQL / DASHBOARDS / INSIGHT</small></div>
+            <div class="focus-item"><span>02</span><strong>Model</strong><small>PYTHON / ML / EVALUATION</small></div>
+            <div class="focus-item"><span>03</span><strong>Build</strong><small>APIS / PIPELINES / APPS</small></div>
+          </div>
+        </aside>
+        <div class="scroll-cue eyebrow"><b aria-hidden="true"></b> Scroll for work</div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Data Analytics</span><i>✦</i><span>Machine Learning</span><i>✦</i><span>Software Engineering</span><i>✦</i><span>Data Science</span><i>✦</i><span>Data Analytics</span><i>✦</i><span>Machine Learning</span><i>✦</i><span>Software Engineering</span><i>✦</i><span>Data Science</span><i>✦</i>
+        </div>
+      </div>
+
+      <section class="shell experience" id="experience">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="mono-label">01 / Experience</div>
+            <h2>Built for the<br />real world.</h2>
+          </div>
+          <p>Experience spanning predictive analytics, data visualization, search relevance, production ML, and research-grade validation.</p>
+        </div>
+        <div class="experience-list" data-reveal>
+          <article class="role">
+            <div><h3>Data Analyst, Part-time</h3><div class="company">UMD — Maryland Athletics</div></div>
+            <time>Dec 2024<br />May 2026</time>
+            <p>Built SQL/Python predictive models for ticket pricing and fundraising, and delivered automated Tableau dashboards that turned engagement, marketing, and attendance data into decisions for athletic leaders.</p>
+          </article>
+          <article class="role">
+            <div><h3>Machine Learning Intern</h3><div class="company">Acodesoft Technologies</div></div>
+            <time>Jan 2024<br />Jul 2024</time>
+            <p>Developed a Transformer-based multimodal re-ranking model and a query-understanding pipeline; built Spark ETL and Airflow retraining workflows with monitoring, testing, and rollout checks.</p>
+          </article>
+          <article class="role">
+            <div><h3>ML Research Intern</h3><div class="company">Laurentian University</div></div>
+            <time>Jul 2023<br />Aug 2023</time>
+            <p>Optimized Python/C++ inference prototypes for vision and text on resource-constrained environments, with end-to-end accuracy and latency benchmarking.</p>
+          </article>
+          <article class="role">
+            <div><h3>Data Analyst Intern</h3><div class="company">Ambition Pharma</div></div>
+            <time>Jan 2023<br />Jun 2023</time>
+            <p>Analyzed financial performance and unit-level profitability across manufacturing and sales operations; cleaned and modeled data, then delivered executive reports and visualizations that made complex findings actionable in board meetings.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell section" id="work">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="mono-label">02 / Selected work</div>
+            <h2>Complex problems,<br />made legible.</h2>
+          </div>
+          <p>A focused selection from my public GitHub work, showing data analysis, machine learning, backend systems, dashboards, and intelligent automation.</p>
+        </div>
+
+        <div class="work-grid">
+          <a class="project" data-reveal href="https://github.com/MananxRobin/OPERON_INTELLIGENCE" target="_blank" rel="noreferrer">
+            <span class="project-index mono-label">01 / Platform</span><span class="repo-arrow" aria-hidden="true">↗</span>
+            <h3>Operon<br />Intelligence</h3>
+            <p>A unified complaint-operations platform for banks, fintechs, and lenders — combining multi-channel intake, agentic analysis, explainable routing, and operator workflows.</p>
+            <div class="tags"><span>Python</span><span>Agentic AI</span><span>Financial Ops</span></div>
+          </a>
+          <a class="project" data-reveal href="https://github.com/MananxRobin/Agentic_AI_Financial_Workflow_Automation" target="_blank" rel="noreferrer">
+            <span class="project-index mono-label">02 / Workflow</span><span class="repo-arrow" aria-hidden="true">↗</span>
+            <h3>Agentic Financial<br />Workflow</h3>
+            <p>Audit-ready financial automation with document extraction, anomaly detection, approval checkpoints, persistent decision memory, and executive reporting.</p>
+            <div class="tags"><span>FastAPI</span><span>Multi-Agent</span><span>Human-in-the-loop</span></div>
+          </a>
+          <a class="project" data-reveal href="https://github.com/MananxRobin/fraud-detection-system" target="_blank" rel="noreferrer">
+            <span class="project-index mono-label">03 / Real-time ML</span><span class="repo-arrow" aria-hidden="true">↗</span>
+            <h3>Fraud Detection<br />System</h3>
+            <p>A full-stack streaming ML pipeline that ingests transactions through Kafka, serves LightGBM predictions with FastAPI, and monitors activity through a live dashboard.</p>
+            <div class="tags"><span>Kafka</span><span>LightGBM</span><span>Streamlit</span></div>
+          </a>
+          <a class="project" data-reveal href="https://github.com/MananxRobin/Energy-Consumption-Forecasting-with-Darts" target="_blank" rel="noreferrer">
+            <span class="project-index mono-label">04 / Forecasting</span><span class="repo-arrow" aria-hidden="true">↗</span>
+            <h3>Energy Forecasting<br />with Darts</h3>
+            <p>A complete forecasting workflow for regional energy demand: feature engineering, model comparison, tuning, and multi-step prediction visualizations.</p>
+            <div class="tags"><span>Time Series</span><span>Darts</span><span>Python</span></div>
+          </a>
+          <a class="project" data-reveal href="https://github.com/MananxRobin/NexusProxy" target="_blank" rel="noreferrer">
+            <span class="project-index mono-label">05 / Developer tool</span><span class="repo-arrow" aria-hidden="true">↗</span>
+            <h3>Nexus<br />Proxy</h3>
+            <p>A local search gateway that pools free-tier providers behind one normalized API, using exhaustion-aware routing to maximize available search capacity for developers and AI agents.</p>
+            <div class="tags"><span>API Gateway</span><span>Search APIs</span><span>CLI</span></div>
+          </a>
+          <a class="project" data-reveal href="https://github.com/MananxRobin/localToGlobal" target="_blank" rel="noreferrer">
+            <span class="project-index mono-label">06 / Developer tool</span><span class="repo-arrow" aria-hidden="true">↗</span>
+            <h3>Local to<br />Global</h3>
+            <p>A CLI-first tool for detecting local apps and safely sharing them through Cloudflare Quick Tunnels, with expiry controls, optional tokens, and route profiles.</p>
+            <div class="tags"><span>Rust</span><span>Cloudflare</span><span>Developer Tools</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="statement">
+        <div class="shell statement-grid" data-reveal>
+          <div>
+            <div class="mono-label">03 / Working principles</div>
+            <h2>Start with the problem,<br />build the <em>right system.</em></h2>
+          </div>
+          <div class="statement-copy">
+            <p>The most valuable systems make their reasoning inspectable and their outputs actionable. I’m drawn to work where analysis is clear, models are measurable, and the software around them helps people make better decisions.</p>
+            <div class="skill-list">
+              <div class="skill-row"><b>01</b><span>Data analytics</span><small>SQL / DASHBOARDS / INSIGHT</small></div>
+              <div class="skill-row"><b>02</b><span>Data science &amp; ML</span><small>MODELS / EVALUATION</small></div>
+              <div class="skill-row"><b>03</b><span>Software systems</span><small>APIS / TESTING / DELIVERY</small></div>
+              <div class="skill-row"><b>04</b><span>Data engineering</span><small>ETL / PIPELINES / MONITORING</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell section about" id="about">
+        <div class="about-graphic" data-reveal aria-hidden="true">
+          <span class="coordinate x">INPUT: SIGNAL</span><span class="coordinate y">OUTPUT: CLARITY</span>
+          <div class="orbit"></div><div class="nucleus">M.</div>
+        </div>
+        <div class="about-copy" data-reveal>
+          <div class="mono-label">04 / About Manan</div>
+          <h2>Make complex work <em>useful.</em></h2>
+          <p>I work across the full path from raw data to useful software: analytics and dashboards, reliable pipelines, predictive models, experimentation frameworks, and applications for people who need to act on the results.</p>
+          <div class="fact-row">
+            <div class="fact"><strong>M.S. Data Science</strong><span>University of Maryland · 3.9 GPA</span></div>
+            <div class="fact"><strong>End-to-end builder</strong><span>Analysis to application</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="shell" data-reveal>
+          <div class="mono-label">05 / Get in touch</div>
+          <h2>Let’s build something<br /><em>that matters.</em></h2>
+          <div class="contact-bar">
+            <p>Have a data problem, AI opportunity, or software product that needs thoughtful engineering? I’d love to hear about it.</p>
+            <a class="email" href="mailto:mananambaliya7010@gmail.com">mananambaliya7010@gmail.com</a>
+          </div>
+          <footer class="site-footer">
+            <span>© <span id="year"></span> Manan Ambaliya</span>
+            <span><a href="https://www.linkedin.com/in/manan-ambaliya-65806217a/" target="_blank" rel="noreferrer">LinkedIn ↗</a> &nbsp; / &nbsp; <a href="https://github.com/MananxRobin" target="_blank" rel="noreferrer">GitHub ↗</a></span>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      document.querySelectorAll('[data-reveal]').forEach((item) => observer.observe(item));
+    </script>
+  </body>
+</html>
